@@ -55,32 +55,7 @@ The radar emits a series of periodic pulses, which reflect off moving targets. T
 
 ## Two-Way Doppler Shift
 
-When a stationary radar emits a pulse at frequency `f0`, a moving target causes two Doppler shifts:
-
-1. **Incoming shift (at the target):**
-
-    ```text
-    f' = f0 * (c / (c - v))
-    ```
-
-2. **Outgoing shift (back at the radar):**
-
-    ```text
-    f_echo = f' * ((c + v) / c)
-           = f0 * ((c + v) / (c - v))
-    ```
-
-Solving for `v` from the received echo frequency `f_echo`:
-
-```text
-f_echo / f0 = (c + v) / (c - v)
-
-v = c * ((f_echo/f0) - 1) / ((f_echo/f0) + 1)
-
-- $f_0$: transmitted frequency  
-- $f_{\text{echo}}$: received (reflected) frequency  
-- $c$: speed of sound (343 m/s)  
-- $v$: target velocity toward the radar
+![Two-Way Doppler Equation](double-doppler-explanation.png)
 
 ## Struggle
 I first made this as a single target pipeline which failed when trying to expand to multi target. I then re-wrote the project from scratch to this multi target version.
